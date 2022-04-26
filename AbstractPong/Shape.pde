@@ -7,10 +7,10 @@ abstract class Shape {
   //
   //Constructor
   Shape(float x, float y, float w, float h) {
-    x = ;
-    y = ;
-    w = ;
-    h = ;
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
   }//End Constructor 
   //
   //Methods
