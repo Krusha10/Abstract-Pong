@@ -20,6 +20,8 @@ void setup()
 void draw() {
   background(#000000);
   cHex.draw();
+  cHex.xDirectionSetter(recLeft.xLeftPaddleGetter(), recLeft.yLeftPaddleGetter(), recLeft.xRightPaddleGetter(), recLeft.yRightPaddleGetter(), recLeft.heightPaddleGetter(), recLeft.widthPaddleGetter());
+  cHex.xDirectionSetter(recRight.xLeftPaddleGetter(), recRight.yLeftPaddleGetter(), recRight.xRightPaddleGetter(), recRight.yRightPaddleGetter(), recRight.heightPaddleGetter(), recRight.widthPaddleGetter());
   recLeft.draw();
   recRight.draw();
 }//End draw()

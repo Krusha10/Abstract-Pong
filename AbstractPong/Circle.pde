@@ -1,6 +1,6 @@
 class Circle extends Shape {
   //Global variables
-  color colour, nightModeColour;
+  color colour, nightModeColour, resetColour = #FFFFFF;
   int xSpeed, ySpeed;
   int diameter;
   //
@@ -18,7 +18,7 @@ class Circle extends Shape {
   void draw() {
     fill(colour);
     ellipse(x, y, w, h);
-    fill(nightModeColour);
+    fill(resetColour);
     move();
     bounceBall();
   }//End draw()
@@ -37,4 +37,9 @@ class Circle extends Shape {
     }
     if (y - diameter*1/2 < height*0 || y + diameter*1/2 > height) ySpeed *= -1;
   }//End Bounce
+  //
+  void xDirectionSetter( float xPaddleLeft, float yPaddleLeft, float xPaddleRight, float yPaddleRight, float paddleHeight, float paddleWidth) {
+    if ( x < xPaddleLeft + paddleWidth + (diameter*1/2) && y > yPaddleLeft && y < yPaddleLeft+paddleHeight ) xSpeed *= -1;
+    if ( x >= xPaddleRight && y > yPaddleRight && y < yPaddleRight+paddleHeight ) xSpeed *=-1;
+  }
 }//End Circle 
