@@ -1,6 +1,8 @@
-class Rectangle extends Shape{
+class Rectangle extends Shape {
   //Global variables
   color colourDayMode, nightModeColour, resetColour = #FFFFFF;
+  Boolean moveUp, moveDown;
+  int yMove;
   float xLeftPaddle, yLeftPaddle, xRightPaddle, yRightPaddle, widthPaddle, heightPaddle;
   //
   //Constructor
@@ -14,29 +16,37 @@ class Rectangle extends Shape{
     yLeftPaddle = y;
     widthPaddle = w;
     heightPaddle = h;
+    yMove = 4;
+    this.moveUp = false;
+    this.moveDown = false;
   }//End Constructor
   //
   //Methods
   void draw() {
-    //fill(colour);
-    //rect(x, y , w, h);
-    //fill(nightModeColour);
-    leftPaddle();
-    rightPaddle();
+    if (moveUp == true) y -= yMove;
+    if (moveDown == true) y += yMove;
+    //
+    fill(colourDayMode);
+    rect(x, y, w, h);
+    fill(nightModeColour);
+    //leftPaddle();
+    //rightPaddle();
   }//End draw()
   //
+  /*
   void leftPaddle() {
-    fill(colourDayMode);
-    rect(xLeftPaddle, yLeftPaddle, widthPaddle, heightPaddle);
-    fill(resetColour);
-  }//End leftPaddle
-  //
-  void rightPaddle() {
-    fill(colourDayMode);
-    rect(xRightPaddle, yRightPaddle, widthPaddle, heightPaddle);
-    fill(resetColour);
-  }//End rightPaddle
-  //
+   fill(colourDayMode);
+   rect(xLeftPaddle, yLeftPaddle, widthPaddle, heightPaddle);
+   fill(resetColour);
+   }//End leftPaddle
+   //
+   void rightPaddle() {
+   fill(colourDayMode);
+   rect(xRightPaddle, yRightPaddle, widthPaddle, heightPaddle);
+   fill(resetColour);
+   }//End rightPaddle
+   //
+   */
   float xGetter() {
     return x;
   }
@@ -49,8 +59,29 @@ class Rectangle extends Shape{
   float hGetter() {
     return h;
   }
+  color colourDayGetter() {
+    return colourDayMode;
+  }
+  color nightModeColourGetter() {
+    return nightModeColour;
+  }
+  //Setters
+  void upMovementPaddles() {
+    moveUp = true;
+    moveDown = false;
+  }//End upMovementPaddle 
+  void downMovementPaddles() {
+    moveUp = false;
+    moveDown = true;
+  }//End downMovementPaddle
+  void stopPaddle() {
+    moveUp = false;
+    moveDown = false;
+  }//End stopPaddle
   //
   //common methods 
-  void leftPaddleBounce(float x, float y, float h, float w) {}
-  void rightPaddleBounce(float x, float y, float h) {}
+  void leftPaddleBounce(float x, float y, float h, float w) {
+  }
+  void rightPaddleBounce(float x, float y, float h) {
+  }
 }//End Rectangle

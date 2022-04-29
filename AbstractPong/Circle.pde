@@ -51,10 +51,21 @@ class Circle extends Shape {
   float hGetter() {
     return h;
   }
+  color colourDayGetter() {
+    return colourDayMode;
+  }
+  color nightModeColourGetter() {
+    return nightModeColour;
+  }
+  //
   void leftPaddleBounce( float xPaddleLeft, float yPaddleLeft, float paddleHeight, float paddleWidth) {
     if ( x < xPaddleLeft + paddleWidth + (diameter*1/2) && y > yPaddleLeft && y < yPaddleLeft+paddleHeight ) xSpeed *= -1;
   }
   void rightPaddleBounce( float xPaddleRight, float yPaddleRight, float paddleHeight) {
     if ( x >= xPaddleRight && y > yPaddleRight && y < yPaddleRight+paddleHeight ) xSpeed *=-1;
   }
+  //
+  void upMovementPaddles() {}
+  void downMovementPaddles() {}
+  void stopPaddle() {}
 }//End Circle 
