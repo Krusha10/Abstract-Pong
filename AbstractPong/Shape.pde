@@ -23,9 +23,9 @@ abstract class Shape {
   abstract float yGetter();
   abstract float wGetter();
   abstract float hGetter();
-  abstract void upMovementPaddles();
-  abstract void downMovementPaddles();
-  abstract void stopPaddle();
+  //abstract void upMovementPaddles();
+  //abstract void downMovementPaddles();
+  //abstract void stopPaddle();
   abstract color colourDayGetter();
   abstract color nightModeColourGetter();
 }//End class Shape

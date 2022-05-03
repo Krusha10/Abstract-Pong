@@ -29,24 +29,17 @@ class Rectangle extends Shape {
     fill(colourDayMode);
     rect(x, y, w, h);
     fill(nightModeColour);
-    //leftPaddle();
-    //rightPaddle();
+    //
+    paddleMove();
   }//End draw()
   //
-  /*
-  void leftPaddle() {
-   fill(colourDayMode);
-   rect(xLeftPaddle, yLeftPaddle, widthPaddle, heightPaddle);
-   fill(resetColour);
-   }//End leftPaddle
-   //
-   void rightPaddle() {
-   fill(colourDayMode);
-   rect(xRightPaddle, yRightPaddle, widthPaddle, heightPaddle);
-   fill(resetColour);
-   }//End rightPaddle
-   //
-   */
+  void paddleMove() {
+    if (yLeftPaddle <= height*0) yLeftPaddle = 0;
+    if (yLeftPaddle >= height - heightPaddle) yLeftPaddle = height - heightPaddle;
+    if (yRightPaddle <= height*0) yRightPaddle = 0;
+    if (yRightPaddle >= height - heightPaddle) yRightPaddle = height - heightPaddle;
+  }//End paddleMove
+  //
   float xGetter() {
     return x;
   }
