@@ -1,10 +1,12 @@
 //Global Variables and Other Items like Classes
 ArrayList<Shape> shapes = new ArrayList<Shape>();
+Boolean instructionOn = false;
 //
 //Annonymous Class (one time object) (in between local and global variables)
 Shape instructions = new Shape (350*1/2, 250*1/2, 320, 320) {
   //Global variables, no constructor needed
   color colourDayMode, nightModeColour;
+  Boolean xLeftBallGoal = false, xRightBallGoal = false;
   void draw() {
     fill(#FAF688);
     rect(x, y, w, h);//Background for instructions display
@@ -12,8 +14,10 @@ Shape instructions = new Shape (350*1/2, 250*1/2, 320, 320) {
     fill(#FFFFFF);//Reset color
   }
   //Methods for possible text drawing
-  void leftPaddleBounce(float x, float y, float h, float w){}
-  void rightPaddleBounce(float x, float y, float h) {}
+  void leftPaddleBounce(float x, float y, float h, float w) {
+  }
+  void rightPaddleBounce(float x, float y, float h) {
+  }
   float xGetter() {
     return x;
   }
@@ -32,6 +36,13 @@ Shape instructions = new Shape (350*1/2, 250*1/2, 320, 320) {
   color nightModeColourGetter() {
     return nightModeColour;
   }
+  Boolean leftBallGoalGetter() {
+    return xLeftBallGoal;
+  }
+  Boolean rightBallGoalGetter() {
+    return xRightBallGoal;
+  }
+  void textSetup() {}
   //
 }
 ; //colon is necessary code
@@ -46,6 +57,7 @@ void setup()
   //
   //Instructions: 
   shapes.add(instructions);//Element 0
+  shapes.get(3).textSetup();
   //
   //Paddles and Ball
   int yDiameter;
@@ -70,18 +82,40 @@ void setup()
 //
 void draw() {
   background(#000000);
-  shapes.get(3).leftPaddleBounce(shapes.get(1).xGetter(), shapes.get(1).yGetter(), shapes.get(1).hGetter(), shapes.get(1).wGetter());
-  shapes.get(3).rightPaddleBounce(shapes.get(2).xGetter(), shapes.get(2).yGetter(), shapes.get(2).hGetter());
   //
-  for (int i = 0; i < shapes.size(); i++) {
-    shapes.get(i).draw();
-  }//End for loop
+  if (instructionOn == true) shapes.get(0).draw();
+  //
+  if (instructionOn == false) {
+    shapes.get(3).leftPaddleBounce(shapes.get(1).xGetter(), shapes.get(1).yGetter(), shapes.get(1).hGetter(), shapes.get(1).wGetter());
+    shapes.get(3).rightPaddleBounce(shapes.get(2).xGetter(), shapes.get(2).yGetter(), shapes.get(2).hGetter());
+    //
+    for (int i = 1; i < shapes.size(); i++) {
+      shapes.get(i).draw();
+    }//End for loop
+  }
+  /*
+  if (shapes.get(3).leftBallGoalGetter() == true ) {
+   println("goal");
+   //paddles.leftScoreSetter(ball[i].leftBallGoalGetter());
+   shapes.get(3).leftBallGoalGetter() = false;
+   }
+   if (shapes.get(3).rightBallGoalGetter() == true ) {
+   println("goal");
+   //paddles.rightScoreSetter(ball[i].rightBallGoalGetter());
+   shapes.get(3).xRightBallGoal = false;
+   //rightScoreOff[i] = true;
+   }
+   */
 }//End draw()
 //
 void keyPressed() {
   //Instructions: Features, hints for easter eggs
   if (key == CODED && key == 'I' || key == 'i') {
-    shapes.get(0).draw(); //Annonymous Class, element 0
+    if (instructionOn == true) {
+      instructionOn = false;
+    } else {
+      instructionOn = true;
+    }
   }//End IF
   //
   //LeftPaddle, element 0

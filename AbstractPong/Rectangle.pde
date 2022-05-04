@@ -1,7 +1,7 @@
 class Rectangle extends Shape {
   //Global variables
   color colourDayMode, nightModeColour, resetColour = #FFFFFF;
-  Boolean moveUp, moveDown;
+  Boolean moveUp, moveDown, xLeftBallGoal = false, xRightBallGoal = false;
   int yMove;
   float xLeftPaddle, yLeftPaddle, xRightPaddle, yRightPaddle, widthPaddle, heightPaddle;
   //
@@ -38,7 +38,13 @@ class Rectangle extends Shape {
     if (yLeftPaddle >= height - heightPaddle) yLeftPaddle = height - heightPaddle;
     if (yRightPaddle <= height*0) yRightPaddle = 0;
     if (yRightPaddle >= height - heightPaddle) yRightPaddle = height - heightPaddle;
+    //
   }//End paddleMove
+  //
+  void paddleMoveReset() {
+    moveUp = false; 
+    moveDown = false;
+  }
   //
   float xGetter() {
     return x;
@@ -57,6 +63,12 @@ class Rectangle extends Shape {
   }
   color nightModeColourGetter() {
     return nightModeColour;
+  }
+  Boolean leftBallGoalGetter() {
+    return xLeftBallGoal;
+  }
+  Boolean rightBallGoalGetter() {
+    return xRightBallGoal;
   }
   //Setters
   void upMovementPaddles() {
@@ -77,4 +89,7 @@ class Rectangle extends Shape {
   }
   void rightPaddleBounce(float x, float y, float h) {
   }
+  //
+  //
+  void textSetup(){}
 }//End Rectangle
