@@ -3,17 +3,61 @@ ArrayList<Shape> shapes = new ArrayList<Shape>();
 Boolean instructionOn = false;
 //
 //Annonymous Class (one time object) (in between local and global variables)
-Shape instructions = new Shape (350*1/2, 250*1/2, 320, 320) {
+Shape instructions = new Shape (190, 90, 320, 320) {
   //Global variables, no constructor needed
   color colourDayMode, nightModeColour;
   Boolean xLeftBallGoal = false, xRightBallGoal = false;
+  //
+  PFont titleFont;
+  //
+  String notes = "wow";
+  color darkPinkInk = #D65083;
+  color nightModePinkInk = #FF43B1, resetColor = #000000;
+  //
   void draw() {
+    textSetup();
     fill(#FAF688);
     rect(x, y, w, h);//Background for instructions display
     //Text code here:
     fill(#FFFFFF);//Reset color
+    textDraw( h, darkPinkInk, CENTER, CENTER, titleFont, notes, x, y, w, h );
   }
   //Methods for possible text drawing
+  //
+  //Text Calculator 
+  //
+  void textSetup()
+  {
+    titleFont = createFont("Georgia", 55);
+  }
+  //
+  void textDraw(float height, color ink, int alignHorizontal, int alignVerticle, PFont font, String string, float xRect, float yRec, float widthRec, float heightRec) 
+  {
+    fill(ink);
+    textAlign(alignHorizontal, alignVerticle);
+    textFont(font, height);
+    textSize(textCalculator(height, string, widthRec));  
+    text(string, xRect, yRec, widthRec, heightRec);
+    textReset();
+  }//End textDraw()
+
+  void textReset()
+  {
+    fill(resetColor); // Ink to default
+  }//End textReset()
+  //
+  float textCalculator(float size, String string, float widthRec) 
+  {
+    textSize(size);
+    while (textWidth(string) > widthRec) 
+    {
+      size = size * 0.9;
+      textSize(size);
+    }//End While
+    size = size * 0.15; //Additional decrease for Font
+    return size;
+  }//End textCalculator
+  //
   void leftPaddleBounce(float x, float y, float h, float w) {
   }
   void rightPaddleBounce(float x, float y, float h) {
@@ -42,7 +86,6 @@ Shape instructions = new Shape (350*1/2, 250*1/2, 320, 320) {
   Boolean rightBallGoalGetter() {
     return xRightBallGoal;
   }
-  void textSetup() {}
   //
 }
 ; //colon is necessary code
@@ -57,7 +100,6 @@ void setup()
   //
   //Instructions: 
   shapes.add(instructions);//Element 0
-  shapes.get(3).textSetup();
   //
   //Paddles and Ball
   int yDiameter;

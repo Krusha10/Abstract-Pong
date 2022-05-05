@@ -10,10 +10,10 @@ class Rectangle extends Shape {
     super(x, y, w, h);
     this.colourDayMode = colourDayParameter;//color(random(0, 255), random(255), random(255));
     this.nightModeColour = nightModeColourParameter;//colour = color(random(0, 255), random(255), 0);
-    xLeftPaddle = x;
-    xRightPaddle = x;
-    yRightPaddle = y;
-    yLeftPaddle = y;
+    xLeftPaddle = appWidth*1/40;
+    xRightPaddle = appWidth*16/17;
+    yRightPaddle = appHeight*1/3;
+    yLeftPaddle = appHeight*1/3;
     widthPaddle = w;
     heightPaddle = h;
     yMove = 4;
@@ -35,9 +35,9 @@ class Rectangle extends Shape {
   //
   void paddleMove() {
     if (yLeftPaddle <= height*0) yLeftPaddle = 0;
-    if (yLeftPaddle >= height - heightPaddle) yLeftPaddle = height - heightPaddle;
+    if (yLeftPaddle >= height - heightPaddle) yLeftPaddle = appHeight - heightPaddle;
     if (yRightPaddle <= height*0) yRightPaddle = 0;
-    if (yRightPaddle >= height - heightPaddle) yRightPaddle = height - heightPaddle;
+    if (yRightPaddle >= height - heightPaddle) yRightPaddle = appHeight - heightPaddle;
     //
   }//End paddleMove
   //
@@ -91,5 +91,4 @@ class Rectangle extends Shape {
   }
   //
   //
-  void textSetup(){}
 }//End Rectangle

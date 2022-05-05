@@ -25,7 +25,6 @@ abstract class Shape {
   abstract float hGetter();
   abstract Boolean leftBallGoalGetter();
   abstract Boolean rightBallGoalGetter();
-  abstract void textSetup();
   abstract color colourDayGetter();
   abstract color nightModeColourGetter();
 }//End class Shape

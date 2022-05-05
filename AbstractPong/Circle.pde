@@ -69,10 +69,10 @@ class Circle extends Shape {
     }
     //
     if (xRightBallGoal == true) {
-      textDraw(height, colourDayMode, CENTER, CENTER, titleFont, str(rightGoalScore), xLeftScore, yLeftScore, widthScore, heightScore);
+      textDraw(height, darkPinkInk, CENTER, CENTER, titleFont, str(rightGoalScore), xLeftScore, yLeftScore, widthScore, heightScore);
     }
     if (xLeftBallGoal == true) {
-      textDraw(height, colourDayMode, CENTER, CENTER, titleFont, str(leftGoalScore), xRightScore, yRightScore, widthScore, heightScore);
+      textDraw(height, darkPinkInk, CENTER, CENTER, titleFont, str(leftGoalScore), xRightScore, yRightScore, widthScore, heightScore);
     }
   }//End ballScore
   //
