@@ -1,16 +1,17 @@
 //Global Variables and Other Items like Classes
 ArrayList<Shape> shapes = new ArrayList<Shape>();
-Boolean instructionOn = false;
+Boolean instructionOn = true;
 //
 //Annonymous Class (one time object) (in between local and global variables)
-Shape instructions = new Shape (190, 90, 320, 320) {
+Shape instructions = new Shape (190, 90, 500, 500) {
   //Global variables, no constructor needed
   color colourDayMode, nightModeColour;
   Boolean xLeftBallGoal = false, xRightBallGoal = false;
   //
   PFont titleFont;
   //
-  String notes = "wow";
+  String notes = "LET'S PLAY PONG";
+  String notes1 = "While score moves up the paddle size will decrease";
   color darkPinkInk = #D65083;
   color nightModePinkInk = #FF43B1, resetColor = #000000;
   //
@@ -21,6 +22,7 @@ Shape instructions = new Shape (190, 90, 320, 320) {
     //Text code here:
     fill(#FFFFFF);//Reset color
     textDraw( h, darkPinkInk, CENTER, CENTER, titleFont, notes, x, y, w, h );
+    textDraw( h, darkPinkInk, CENTER, CENTER, titleFont, notes1, x, y, w, h );
   }
   //Methods for possible text drawing
   //
@@ -62,6 +64,7 @@ Shape instructions = new Shape (190, 90, 320, 320) {
   }
   void rightPaddleBounce(float x, float y, float h) {
   }
+  void ballObjects(float x, float y, float w, float h) {}
   float xGetter() {
     return x;
   }
@@ -120,6 +123,8 @@ void setup()
   shapes.add(recLeft);//Element 1
   shapes.add(recRight);//Element 2
   shapes.add(cHex);//Element 3
+  //TO BE FIXED
+  //.textSetup();
 }//End setup()
 //
 void draw() {

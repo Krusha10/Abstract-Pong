@@ -22,11 +22,11 @@ class Circle extends Shape {
   //
   //Methods
   void draw() {
+    println(x);
     fill(colourDayMode);
     ellipse(x, y, w, h);
     fill(resetColour);
-    move();
-    bounceBall();
+    ballScore();
   }//End draw()
   //
   void move() {
@@ -45,6 +45,9 @@ class Circle extends Shape {
   }//End Bounce
   //
   void ballScore() {
+    move();
+    bounceBall();
+    //
     if ( x < (width*0) + diameter ||x > width - diameter ) { //Net detection
       if ( x < (width*0) + diameter) {
         //Score
@@ -68,12 +71,14 @@ class Circle extends Shape {
       move();
     }
     //
-    if (xRightBallGoal == true) {
-      textDraw(height, darkPinkInk, CENTER, CENTER, titleFont, str(rightGoalScore), xLeftScore, yLeftScore, widthScore, heightScore);
-    }
-    if (xLeftBallGoal == true) {
-      textDraw(height, darkPinkInk, CENTER, CENTER, titleFont, str(leftGoalScore), xRightScore, yRightScore, widthScore, heightScore);
-    }
+    /*
+    textAlign(int(width*1/4),int( height * 1.2));
+    textSize(width*1/30);
+    fill(#FF9558);
+    text(rightGoalScore, width/2, width*1/5);
+    */
+    textDraw(height, darkPinkInk, CENTER, CENTER, titleFont, str(rightGoalScore), xLeftScore, yLeftScore, widthScore, heightScore);
+    textDraw(height, darkPinkInk, CENTER, CENTER, titleFont, str(leftGoalScore), xRightScore, yRightScore, widthScore, heightScore);
   }//End ballScore
   //
   void scoreSetter(int scoreLeft, int scoreRight) {
@@ -125,6 +130,8 @@ class Circle extends Shape {
   color nightModeColourGetter() {
     return nightModeColour;
   }
+  //Common methods 
+  void ballObjects(float x, float y, float w, float h) {}
   //
   void leftPaddleBounce( float xPaddleLeft, float yPaddleLeft, float paddleHeight, float paddleWidth) {
     if ( x < xPaddleLeft + paddleWidth + (diameter*1/2) && y > yPaddleLeft && y < yPaddleLeft+paddleHeight ) xSpeed *= -1;
@@ -190,4 +197,5 @@ class Circle extends Shape {
     size = size * 0.15; //Additional decrease for Font
     return size;
   }//End textCalculator
+  //
 }//End Circle 

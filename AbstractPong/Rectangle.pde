@@ -1,8 +1,8 @@
 class Rectangle extends Shape {
   //Global variables
   color colourDayMode, nightModeColour, resetColour = #FFFFFF;
-  Boolean moveUp, moveDown, xLeftBallGoal = false, xRightBallGoal = false;
-  int yMove;
+  Boolean moveUp, moveDown, xLeftBallGoal = false, xRightBallGoal = false, screenSaver = false, singlePlayer = false ;
+  int yMove, paddleSpeed = 0;
   float xLeftPaddle, yLeftPaddle, xRightPaddle, yRightPaddle, widthPaddle, heightPaddle;
   //
   //Constructor
@@ -11,33 +11,56 @@ class Rectangle extends Shape {
     this.colourDayMode = colourDayParameter;//color(random(0, 255), random(255), random(255));
     this.nightModeColour = nightModeColourParameter;//colour = color(random(0, 255), random(255), 0);
     xLeftPaddle = appWidth*1/40;
+    yLeftPaddle = appHeight*1/3;
     xRightPaddle = appWidth*16/17;
     yRightPaddle = appHeight*1/3;
-    yLeftPaddle = appHeight*1/3;
     widthPaddle = w;
     heightPaddle = h;
-    yMove = 4;
+    this.yMove = 4;
     this.moveUp = false;
     this.moveDown = false;
   }//End Constructor
   //
   //Methods
   void draw() {
-    if (moveUp == true) y -= yMove;
-    if (moveDown == true) y += yMove;
     //
     fill(colourDayMode);
     rect(x, y, w, h);
+    println(x,y, w, h);
+    println(xLeftPaddle, xRightPaddle);
     fill(nightModeColour);
+    //leftPaddle();
+    //rightPaddle();
     //
     paddleMove();
   }//End draw()
   //
+  /*
+  void leftPaddle() {
+    fill(colourDayMode);
+    rect(xLeftPaddle, yLeftPaddle, widthPaddle, heightPaddle);
+    fill(resetColour);
+    paddleMove();
+  }//End leftPaddle
+  //
+  void rightPaddle() {
+    fill(colourDayMode);
+    rect(xRightPaddle, yRightPaddle, widthPaddle, heightPaddle);
+    fill(resetColour);
+    paddleMove();
+  }//End rightPaddle
+  //
+  */
+  //
   void paddleMove() {
-    if (yLeftPaddle <= height*0) yLeftPaddle = 0;
-    if (yLeftPaddle >= height - heightPaddle) yLeftPaddle = appHeight - heightPaddle;
-    if (yRightPaddle <= height*0) yRightPaddle = 0;
-    if (yRightPaddle >= height - heightPaddle) yRightPaddle = appHeight - heightPaddle;
+    println("yesssssss");
+    if (moveUp == true) y -= yMove;
+    if (moveDown == true) y += yMove;
+    //
+    if (y <= height*0) y = 0;
+    if (y >= height - heightPaddle) y = height - heightPaddle;
+    if (y <= height*0) y = 0;
+    if (y >= height - heightPaddle) y = height - heightPaddle;
     //
   }//End paddleMove
   //
@@ -90,5 +113,9 @@ class Rectangle extends Shape {
   void rightPaddleBounce(float x, float y, float h) {
   }
   //
+  void ballObjects(float x, float y, float w, float h) {
+  }
+  //
+  void textSetup() {}
   //
 }//End Rectangle

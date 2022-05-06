@@ -19,6 +19,8 @@ abstract class Shape {
   //
   abstract void leftPaddleBounce(float x, float y, float h, float w);
   abstract void rightPaddleBounce(float x, float y, float h);
+  abstract void ballObjects(float x, float y, float w, float h);
+  abstract void textSetup();
   abstract float xGetter();
   abstract float yGetter();
   abstract float wGetter();
