@@ -71,19 +71,22 @@ class Circle extends Shape {
       move();
     }
     //
-    /*
     textAlign(int(width*1/4),int( height * 1.2));
     textSize(width*1/30);
     fill(#FF9558);
-    text(rightGoalScore, width/2, width*1/5);
-    */
-    textDraw(height, darkPinkInk, CENTER, CENTER, titleFont, str(rightGoalScore), xLeftScore, yLeftScore, widthScore, heightScore);
-    textDraw(height, darkPinkInk, CENTER, CENTER, titleFont, str(leftGoalScore), xRightScore, yRightScore, widthScore, heightScore);
+    text(rightGoalScore, width/4, width*1/14);
+    textAlign(int(width*1/4),int( height * 1.2));
+    textSize(width*1/30);
+    fill(#FF9558);
+    text(leftGoalScore, width/1.35, width*1/14);
+    
+    //textDraw(height, darkPinkInk, CENTER, CENTER, titleFont, str(rightGoalScore), xLeftScore, yLeftScore, widthScore, heightScore);
+    //textDraw(height, darkPinkInk, CENTER, CENTER, titleFont, str(leftGoalScore), xRightScore, yRightScore, widthScore, heightScore);
   }//End ballScore
   //
-  void scoreSetter(int scoreLeft, int scoreRight) {
-    if (scoreLeft == 5 || scoreRight == 5) {
-      if (scoreRight == 5) {
+  void scoreSetter(int leftGoalScore, int rightGoalScore) {
+    if (leftGoalScore == 5 || rightGoalScore == 5) {
+      if (rightGoalScore == 5) {
         background(#A58C8C);
         //paddles.paddleMoveReset();
         xSpeed = 0;
@@ -94,9 +97,9 @@ class Circle extends Shape {
         text("WINNER", width/2, width*1/5);
         fill(#FF9558);
         text("LEFT PLAYER WINS!", width/2, width*1/4);
-        scoreLeft = 0;
+        leftGoalScore = 0;
       }
-      if (scoreLeft == 5) {
+      if (leftGoalScore == 5) {
         background(#A58C8C);
         //paddles.paddleMoveReset();
         xSpeed = 0;
@@ -107,7 +110,7 @@ class Circle extends Shape {
         text("WINNER", width/2, width*1/5);
         fill(#FF9558);
         text("RIGHT PLAYER WINS!", width/2, width*1/4);
-        scoreRight = 0;
+        rightGoalScore = 0;
       }
     }
   }
@@ -147,12 +150,6 @@ class Circle extends Shape {
   void stopPaddle() {
   }
   //
-  Boolean leftBallGoalGetter() {
-    return xLeftBallGoal;
-  }
-  Boolean rightBallGoalGetter() {
-    return xRightBallGoal;
-  }
   //
   //
   //Text Calculator 

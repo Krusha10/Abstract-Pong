@@ -3,15 +3,14 @@ ArrayList<Shape> shapes = new ArrayList<Shape>();
 Boolean instructionOn = true;
 //
 //Annonymous Class (one time object) (in between local and global variables)
-Shape instructions = new Shape (190, 90, 500, 500) {
+Shape instructions = new Shape (width*1, height*1/4, 500, 450) {
   //Global variables, no constructor needed
   color colourDayMode, nightModeColour;
-  Boolean xLeftBallGoal = false, xRightBallGoal = false;
   //
   PFont titleFont;
   //
-  String notes = "LET'S PLAY PONG";
-  String notes1 = "While score moves up the paddle size will decrease";
+  String notes = "LET'S PLAY PONG \n While score moves up the paddle size will decrease";
+  //String notes1 = "While score moves up the paddle size will decrease";
   color darkPinkInk = #D65083;
   color nightModePinkInk = #FF43B1, resetColor = #000000;
   //
@@ -22,7 +21,7 @@ Shape instructions = new Shape (190, 90, 500, 500) {
     //Text code here:
     fill(#FFFFFF);//Reset color
     textDraw( h, darkPinkInk, CENTER, CENTER, titleFont, notes, x, y, w, h );
-    textDraw( h, darkPinkInk, CENTER, CENTER, titleFont, notes1, x, y, w, h );
+    //textDraw( h, darkPinkInk, CENTER, CENTER, titleFont, notes1, x, y, w, h );
   }
   //Methods for possible text drawing
   //
@@ -56,7 +55,7 @@ Shape instructions = new Shape (190, 90, 500, 500) {
       size = size * 0.9;
       textSize(size);
     }//End While
-    size = size * 0.15; //Additional decrease for Font
+    //size = size * 0.15; //Additional decrease for Font
     return size;
   }//End textCalculator
   //
@@ -82,12 +81,6 @@ Shape instructions = new Shape (190, 90, 500, 500) {
   }
   color nightModeColourGetter() {
     return nightModeColour;
-  }
-  Boolean leftBallGoalGetter() {
-    return xLeftBallGoal;
-  }
-  Boolean rightBallGoalGetter() {
-    return xRightBallGoal;
   }
   //
 }

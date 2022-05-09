@@ -29,28 +29,8 @@ class Rectangle extends Shape {
     println(x,y, w, h);
     println(xLeftPaddle, xRightPaddle);
     fill(nightModeColour);
-    //leftPaddle();
-    //rightPaddle();
-    //
     paddleMove();
   }//End draw()
-  //
-  /*
-  void leftPaddle() {
-    fill(colourDayMode);
-    rect(xLeftPaddle, yLeftPaddle, widthPaddle, heightPaddle);
-    fill(resetColour);
-    paddleMove();
-  }//End leftPaddle
-  //
-  void rightPaddle() {
-    fill(colourDayMode);
-    rect(xRightPaddle, yRightPaddle, widthPaddle, heightPaddle);
-    fill(resetColour);
-    paddleMove();
-  }//End rightPaddle
-  //
-  */
   //
   void paddleMove() {
     println("yesssssss");
@@ -86,12 +66,6 @@ class Rectangle extends Shape {
   }
   color nightModeColourGetter() {
     return nightModeColour;
-  }
-  Boolean leftBallGoalGetter() {
-    return xLeftBallGoal;
-  }
-  Boolean rightBallGoalGetter() {
-    return xRightBallGoal;
   }
   //Setters
   void upMovementPaddles() {
