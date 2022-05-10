@@ -27,6 +27,7 @@ class Circle extends Shape {
     ellipse(x, y, w, h);
     fill(resetColour);
     ballScore();
+    println(x);
   }//End draw()
   //
   void move() {
@@ -52,6 +53,12 @@ class Circle extends Shape {
       if ( x < (width*0) + diameter) {
         //Score
         xLeftBallGoal = true;
+        fill (#E03D3D);
+        fill (#DE53C0);
+        fill (#53DEC3);
+        fill (#53DE7D);
+        fill (#EBFA49);
+        fill (resetColour);
         leftGoalScore ++;
         x = width*1/2;
         y = height*1/2;
@@ -59,6 +66,12 @@ class Circle extends Shape {
       if ( x > width - diameter) {
         //Score
         xRightBallGoal = true;
+        fill (#E03D3D);
+        fill (#DE53C0);
+        fill (#53DEC3);
+        fill (#53DE7D);
+        fill (#EBFA49);
+        fill (resetColour);
         rightGoalScore ++;
         x = width*1/2;
         y = height*1/2;
@@ -66,7 +79,7 @@ class Circle extends Shape {
     }//End Net detection 
     //
     if (xLeftBallGoal == true || xRightBallGoal == true) {
-      //
+      scoreSetter();
     } else {
       move();
     }
@@ -84,7 +97,7 @@ class Circle extends Shape {
     //textDraw(height, darkPinkInk, CENTER, CENTER, titleFont, str(leftGoalScore), xRightScore, yRightScore, widthScore, heightScore);
   }//End ballScore
   //
-  void scoreSetter(int leftGoalScore, int rightGoalScore) {
+  void scoreSetter() {
     if (leftGoalScore == 5 || rightGoalScore == 5) {
       if (rightGoalScore == 5) {
         background(#A58C8C);
@@ -135,6 +148,8 @@ class Circle extends Shape {
   }
   //Common methods 
   void ballObjects(float x, float y, float w, float h) {}
+  //
+  void scoreObjects(int rightGoalScore, int leftGoalScore) {}
   //
   void leftPaddleBounce( float xPaddleLeft, float yPaddleLeft, float paddleHeight, float paddleWidth) {
     if ( x < xPaddleLeft + paddleWidth + (diameter*1/2) && y > yPaddleLeft && y < yPaddleLeft+paddleHeight ) xSpeed *= -1;

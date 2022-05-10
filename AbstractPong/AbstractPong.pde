@@ -9,7 +9,7 @@ Shape instructions = new Shape (width*1, height*1/4, 500, 450) {
   //
   PFont titleFont;
   //
-  String notes = "LET'S PLAY PONG \n While score moves up the paddle size will decrease";
+  String notes = "LET'S PLAY PONG \n To play pong click the screen and press I to get started \n Click on the screen to get a new ball \n While score moves up the paddle size will decrease";
   //String notes1 = "While score moves up the paddle size will decrease";
   color darkPinkInk = #D65083;
   color nightModePinkInk = #FF43B1, resetColor = #000000;
@@ -64,6 +64,8 @@ Shape instructions = new Shape (width*1, height*1/4, 500, 450) {
   void rightPaddleBounce(float x, float y, float h) {
   }
   void ballObjects(float x, float y, float w, float h) {}
+  void scoreObjects(int rightGoalScore, int leftGoalScore) {}
+  //
   float xGetter() {
     return x;
   }
