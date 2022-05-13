@@ -1,15 +1,15 @@
 //Global Variables and Other Items like Classes
 ArrayList<Shape> shapes = new ArrayList<Shape>();
-Boolean instructionOn = true;
+Boolean instructionOn = true, restart = false;
 //
 //Annonymous Class (one time object) (in between local and global variables)
 Shape instructions = new Shape (width*1, height*1/4, 500, 450) {
   //Global variables, no constructor needed
-  color colourDayMode, nightModeColour;
+  color colourDayMode, nightModeColour, rightGoalScore, leftGoalScore;
   //
   PFont titleFont;
   //
-  String notes = "LET'S PLAY PONG \n To play pong click the screen and press I to get started \n Click on the screen to get a new ball \n While score moves up the paddle size will decrease";
+  String notes = "LET'S PLAY PONG \n To play pong click the screen and press I to get started \n Click on the screen to get a new ball \n While score moves up the paddle size will decrease \n To select speed for paddles, prees s for slow, r for regular, f for fast \n The game is best of 5, whoever scores 5 first wins the game.";
   //String notes1 = "While score moves up the paddle size will decrease";
   color darkPinkInk = #D65083;
   color nightModePinkInk = #FF43B1, resetColor = #000000;
@@ -64,6 +64,9 @@ Shape instructions = new Shape (width*1, height*1/4, 500, 450) {
   void rightPaddleBounce(float x, float y, float h) {
   }
   void ballObjects(float x, float y, float w, float h) {}
+  //
+  void playingModes(float xBallMove, float yBallMove) {}
+  //
   void scoreObjects(int rightGoalScore, int leftGoalScore) {}
   //
   float xGetter() {
@@ -83,6 +86,12 @@ Shape instructions = new Shape (width*1, height*1/4, 500, 450) {
   }
   color nightModeColourGetter() {
     return nightModeColour;
+  }
+  int scoreLGetter() {
+    return rightGoalScore;
+  }
+  int scoreRGetter() {
+    return leftGoalScore;
   }
   //
 }
@@ -130,6 +139,10 @@ void draw() {
   if (instructionOn == false) {
     shapes.get(3).leftPaddleBounce(shapes.get(1).xGetter(), shapes.get(1).yGetter(), shapes.get(1).hGetter(), shapes.get(1).wGetter());
     shapes.get(3).rightPaddleBounce(shapes.get(2).xGetter(), shapes.get(2).yGetter(), shapes.get(2).hGetter());
+    shapes.get(1).scoreObjects(shapes.get(3).scoreRGetter(), shapes.get(3).scoreLGetter());
+    shapes.get(2).scoreObjects(shapes.get(3).scoreRGetter(), shapes.get(3).scoreLGetter());
+    shapes.get(1).playingModes(shapes.get(3).xGetter(), shapes.get(3).yGetter());
+    shapes.get(2).playingModes(shapes.get(3).xGetter(), shapes.get(3).yGetter());
     //
     for (int i = 1; i < shapes.size(); i++) {
       shapes.get(i).draw();
@@ -159,6 +172,10 @@ void keyPressed() {
       instructionOn = true;
     }
   }//End IF
+  //
+  if (key == 'Q' || key == 'q') {
+    restart = false;
+  }
   //
   //LeftPaddle, element 0
   if (key == CODED && key == 'W' || key == 'w') {

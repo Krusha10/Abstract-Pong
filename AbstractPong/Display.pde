@@ -12,7 +12,7 @@ void display() {
     println("Let's play Pong");
   } else {
     println(instruction);
-    appWidth *= 0;
-    appHeight *= 0;
+    appWidth = width;
+    appHeight = displayHeight*1/4;
   }//End display orientation
 }//End display

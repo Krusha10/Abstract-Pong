@@ -21,6 +21,7 @@ abstract class Shape {
   abstract void rightPaddleBounce(float x, float y, float h);
   abstract void ballObjects(float x, float y, float w, float h);
   abstract void scoreObjects(int rightGoalScore, int leftGoalScore);
+  abstract void playingModes(float xBallMove, float yBallMove);
   abstract void textSetup();
   abstract float xGetter();
   abstract float yGetter();
@@ -28,4 +29,6 @@ abstract class Shape {
   abstract float hGetter();
   abstract color colourDayGetter();
   abstract color nightModeColourGetter();
+  abstract int scoreLGetter();
+  abstract int scoreRGetter();
 }//End class Shape

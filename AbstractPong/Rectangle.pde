@@ -2,7 +2,7 @@ class Rectangle extends Shape {
   //Global variables
   color colourDayMode, nightModeColour, resetColour = #FFFFFF;
   Boolean moveUp, moveDown, xLeftBallGoal = false, xRightBallGoal = false, screenSaver = false, singlePlayer = false ;
-  int yMove, paddleSpeed = 0;
+  int yMove, paddleSpeed = 0, rightGoalScore, leftGoalScore;
   float xLeftPaddle, yLeftPaddle, xRightPaddle, yRightPaddle, widthPaddle, heightPaddle;
   //
   //Constructor
@@ -30,9 +30,43 @@ class Rectangle extends Shape {
     paddleMove();
   }//End draw()
   //
+  void playingModes(float xBallMove, float yBallMove) {
+    if (screenSaver == true) {
+      y = yBallMove-h*1/2;
+      y = yBallMove-h*1/2;
+    }
+    if (singlePlayer == true) {
+      y = yBallMove - h*1/2;
+    }
+  }
+  //
+  void leftPaddlekeyPressed(){
+  
+    if (paddleSpeed == 0 ){
+      if (key=='T' || key=='t') {
+        screenSaver = true;
+        paddleSpeed = 20;
+        paddleSpeed = 20;
+      }
+    //
+    if (paddleSpeed == 0 ) {
+      if (key=='P' || key=='p') {
+        singlePlayer = true;
+        paddleSpeed = 5;
+      }
+      //
+       if (key=='S' || key=='s') paddleSpeed = 2;
+       if (key=='R' || key=='r') paddleSpeed = 5;
+       if (key=='F' || key=='f') paddleSpeed = 10;
+       this.yMove = int((height / height) * paddleSpeed);
+      }
+      //this.yMove = int((height / height) * paddleSpeed);
+    }
+  }
+  //
   void paddleMove() {
-    if (moveUp == true) y -= paddleSpeed;
-    if (moveDown == true) y += paddleSpeed;
+    if (moveUp == true) y -= yMove;
+    if (moveDown == true) y += yMove;
     //
     if (y <= height*0) y = 0;
     if (y >= height - heightPaddle) y = height - heightPaddle;
@@ -64,6 +98,12 @@ class Rectangle extends Shape {
   color nightModeColourGetter() {
     return nightModeColour;
   }
+  int scoreLGetter() {
+    return rightGoalScore;
+  }
+  int scoreRGetter() {
+    return leftGoalScore;
+  }
   //Setters
   void upMovementPaddles() {
     moveUp = true;
@@ -86,11 +126,13 @@ class Rectangle extends Shape {
   void ballObjects(float x, float y, float w, float h) {
   }
   //
+  //
   void scoreObjects(int rightScore, int leftScore) {
-    if (leftScore == 2 || rightScore == 2) heightPaddle = int(height*1/5);
-    if (leftScore == 3 || rightScore == 3) heightPaddle = int(height*1/6); 
-    if (leftScore == 4 || rightScore == 4) heightPaddle = int(height*1/7);
+    if (leftScore == 2 || rightScore == 2) h = int(height*1/5);
+    if (leftScore == 3 || rightScore == 3) h = int(height*1/6); 
+    if (leftScore == 4 || rightScore == 4) h = int(height*1/7);
   }
+  //
   //
   void textSetup() {
   }

@@ -1,7 +1,8 @@
 class Circle extends Shape {
   //Global variables
   color colourDayMode, nightModeColour, resetColour = #FFFFFF;
-  int xSpeed, ySpeed, leftGoalScore = 0, rightGoalScore = 0;
+  int xSpeed, ySpeed; 
+  int leftGoalScore = 0, rightGoalScore = 0;
   float diameter, yLeftScore, yRightScore, widthScore, heightScore, xLeftScore, xRightScore;
   Boolean xLeftBallGoal = false, xRightBallGoal = false;
   //
@@ -84,15 +85,15 @@ class Circle extends Shape {
       move();
     }
     //
-    textAlign(int(width*1/4),int( height * 1.2));
+    textAlign(int(width*1/4), int( height * 1.2));
     textSize(width*1/30);
     fill(#FF9558);
     text(rightGoalScore, width/4, width*1/14);
-    textAlign(int(width*1/4),int( height * 1.2));
+    textAlign(int(width*1/4), int( height * 1.2));
     textSize(width*1/30);
     fill(#FF9558);
     text(leftGoalScore, width/1.35, width*1/14);
-    
+
     //textDraw(height, darkPinkInk, CENTER, CENTER, titleFont, str(rightGoalScore), xLeftScore, yLeftScore, widthScore, heightScore);
     //textDraw(height, darkPinkInk, CENTER, CENTER, titleFont, str(leftGoalScore), xRightScore, yRightScore, widthScore, heightScore);
   }//End ballScore
@@ -146,10 +147,20 @@ class Circle extends Shape {
   color nightModeColourGetter() {
     return nightModeColour;
   }
+  int scoreLGetter() {
+    return rightGoalScore;
+  }
+  int scoreRGetter() {
+    return leftGoalScore;
+  }
   //Common methods 
-  void ballObjects(float x, float y, float w, float h) {}
+  void ballObjects(float x, float y, float w, float h) {
+  }
   //
-  void scoreObjects(int rightGoalScore, int leftGoalScore) {}
+  void scoreObjects(int rightGoalScore, int leftGoalScore) {
+  }
+  //
+  void playingModes(float x, float y) {}
   //
   void leftPaddleBounce( float xPaddleLeft, float yPaddleLeft, float paddleHeight, float paddleWidth) {
     if ( x < xPaddleLeft + paddleWidth + (diameter*1/2) && y > yPaddleLeft && y < yPaddleLeft+paddleHeight ) xSpeed *= -1;
