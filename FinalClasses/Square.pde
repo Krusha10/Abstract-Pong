@@ -9,7 +9,9 @@ class Square extends Point {
   }//End Constructor 
   //
   void draw() {
+    fillCodeColour(); //Non-reset colour
     square(x , y, side);
+    fillResetColor(); //Reset colour
   }//End draw
   //
   //Common Methods 

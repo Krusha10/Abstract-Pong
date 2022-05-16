@@ -9,8 +9,9 @@ class Ellipse extends Circle {
   }
   //
   void draw() {
+    fillCodeColour(); //Non-reset colour
     ellipse(x, y, diameter, yDiameter);
-  }//End draw
+    fillResetColor();   }//End draw
   //
   //Common Methods 
   //

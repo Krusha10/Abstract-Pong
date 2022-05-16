@@ -7,7 +7,9 @@ class Rectangle extends Ellipse {
   }
   //
   void draw() {
+    fillCodeColour(); //Non-reset colour
     rect(x, y, diameter, yDiameter);
+    fillResetColor(); //Reset colour
   }//End draw
   //
   //Common Methods 
