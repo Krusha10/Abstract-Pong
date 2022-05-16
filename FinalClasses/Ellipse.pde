@@ -9,7 +9,7 @@ class Ellipse extends Circle {
   }
   //
   void draw() {
-    ellipse(x, y, diameter, yDiameter); // xPt = xDiameter, yPt = yDiameter
+    ellipse(x, y, diameter, yDiameter);
   }//End draw
   //
   //Common Methods 

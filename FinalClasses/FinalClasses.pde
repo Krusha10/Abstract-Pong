@@ -13,12 +13,21 @@ void setup() {
   Point p = new Point (x, y);
   Line l = new Line (x, y, xPt, yPt);
   Circle c = new Circle (x, y, diameter);
-  Ellipse e = new Ellipse ();
-  Square s = new Square ();
+  float yDiameter = width*1/5;
+  Ellipse e = new Ellipse (x, y, diameter, yDiameter);
+  float sides = width*1/4;
+  Square s = new Square (x, y, sides);
+  float recSide = height*1/3;
+  Rectangle r = new Rectangle (x, y, diameter, recSide);
+  //Circle circle = new Ellipse (x+width*1/5, y+width*1/5, diameter+width*1/5, yDiameter+width*1/5);
   //
   shapes.add(c);
   shapes.add(p);
   shapes.add(l);
+  shapes.add(e);
+  shapes.add(s);
+  shapes.add(r);
+  //shapes.add(circle);
   //
 }//End setup
 //
