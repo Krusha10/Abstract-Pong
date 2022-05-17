@@ -15,5 +15,8 @@ class Square extends Point {
   }//End draw
   //
   //Common Methods 
+  public color fillColour (color colour) {
+    return color(0, 0, colour);
+  }
   //
 } //End Square

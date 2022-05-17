@@ -1,15 +1,15 @@
-class Line extends Point {
+final private class Line extends Point {
   //Global variabls
-  float xPt, yPt;
+  private float xPt, yPt;
   //
   //Constructor
-  Line (float x, float y, float xPt, float yPt) {
+  private Line (float x, float y, float xPt, float yPt) {
     super(x, y);
     this.xPt = xPt;
     this.yPt = yPt;
   }
   //
-  void draw() {
+  public void draw() {
     line(x, y, xPt, yPt);
   }//End draw
   //
