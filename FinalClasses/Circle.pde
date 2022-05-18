@@ -15,7 +15,12 @@ private class Circle extends Point {
   }//End draw
   //
   public color fillColour(color colour) {
-    if (colour != 255) { return 255 ;} else {return color(random(255), random(255), random(255));}
+    if (colour != 255) { 
+      return 255 ;
+    } else {
+      //return color(random(0, 255), random(0, 255), random(0));
+      return color (#E4EA89);
+    }
   }//End fillColour 
   //
   //Common Methods 

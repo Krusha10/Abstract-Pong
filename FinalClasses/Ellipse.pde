@@ -16,7 +16,8 @@ private class Ellipse extends Circle {
   //
   //Common Methods 
   final public color fillColour (color colour) {
-    return color(0, 0, colour);
+    //return color(random(0, 255), random(0, 255), random(0));
+    return color (#E4EA89);
   }//End fillColour
   //
 } //End Ellipse

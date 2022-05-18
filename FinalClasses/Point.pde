@@ -1,6 +1,6 @@
 private class Point extends Shape {
   //Global variabls
-  private color colour = 255;
+  private color colour = #E4EA89;
   //
   //Constructor
   private Point (float x, float y) {
@@ -21,7 +21,8 @@ private class Point extends Shape {
     fill (fillColour(colour));
   }//End fillResetColor
   public color fillColour (color colour) {
-    return color(0, 0, 0);
+    //return color(random(0, 255), random(0, 255), random(0));
+    return color (#E4EA89);
   }//End fillColour
   //
 }//End Point
