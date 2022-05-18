@@ -10,6 +10,7 @@ private class Circle extends Point {
   //
   public void draw() {
     fillCodeColour(); //Non-reset colour
+    strokeWeight(10);
     circle(x, y, diameter);
     fillResetColor();
   }//End draw
