@@ -1,8 +1,8 @@
-class Hat extends Rectangle {
+private class Hat extends Rectangle {
   //Global variables
   //
   //Constructor 
-  Hat (float x, float y, float side, float sideHeight) {
+  private Hat (float x, float y, float side, float sideHeight) {
     super(x, y, side, sideHeight);
   }//End Constructor 
   //

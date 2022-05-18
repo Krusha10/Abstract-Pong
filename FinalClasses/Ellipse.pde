@@ -8,7 +8,7 @@ private class Ellipse extends Circle {
     this.yDiameter = yDiameter;
   }
   //
-  final void draw() {
+  final public void draw() {
     fillCodeColour(); //Non-reset colour
     ellipse(x, y, diameter, yDiameter);
     fillResetColor();   

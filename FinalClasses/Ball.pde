@@ -1,8 +1,8 @@
-final class Ball extends Ellipse {
+final private class Ball extends Ellipse {
   //Global variables 
   //
   //Constructor
-  Ball (float x, float y, float diameter, float yDiameter ) {
+  private Ball (float x, float y, float diameter, float yDiameter ) {
     super (x, y, diameter, yDiameter);
   }//End Constrctor 
   //
