@@ -10,6 +10,8 @@ private class Line extends Point {
   }
   //
   public void draw() {
+    //stroke(#FFFFFF);
+    //strokeWeight(40);
     line(x, y, xPt, yPt);
   }//End draw
   //

@@ -4,16 +4,17 @@ private class Arc extends Point {
   int e;
   //
   //Constructor
-  private Arc (float x, float y, float a, float b, float c, float d, float e) {
+  private Arc (float x, float y, float a, float b, float c, float d, int e) {
     super(x, y);
     this.a = a;
     this.b = b;
     this.c = c;
     this.d = d;
-    //this.e = e;
+    this.e = e;
   }
   //
   public void draw() {
+    fill(0);
     arc(x, y, a, b, c, d, e);
   }//End draw
   //
