@@ -17,10 +17,10 @@ private class Circle extends Point {
   //
   public color fillColour(color colour) {
     if (colour != 255) { 
-      return 255 ;
+      return 255;
     } else {
       //return color(random(0, 255), random(0, 255), random(0));
-      return color (#E4EA89);
+      return color (#FFFFFF);
     }
   }//End fillColour 
   //

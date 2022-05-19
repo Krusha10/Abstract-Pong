@@ -1,4 +1,4 @@
-final private class Line extends Point {
+private class Line extends Point {
   //Global variabls
   private float xPt, yPt;
   //
