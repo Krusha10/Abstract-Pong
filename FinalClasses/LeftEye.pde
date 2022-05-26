@@ -1,8 +1,8 @@
-final private class FaceCircle extends Circle {
+final private class LeftEye extends Circle {
   //Global variables 
   //
   //Constructor
-  private FaceCircle (float x, float y, float diameter ) {
+  private LeftEye (float x, float y, float diameter) {
     super (x, y, diameter);
   }//End Constrctor 
   //
@@ -12,9 +12,9 @@ final private class FaceCircle extends Circle {
     fillResetColor();
   }
   //
-  //Common Method
+  //Common Methods
   public color fillColour (color colour) {
     //return color(random(0, 255), random(0, 255), random(0));
-    return color (#F5FC78);
+    return color (0);
   }
-}//End FaceCircle}}//End FaceCircle
+}//End LeftEye

@@ -8,4 +8,9 @@ final private class Ball extends Ellipse {
   //
   //
   //Common Methods 
+  public void draw() {
+    fillCodeColour();
+    ellipse(x, y, diameter, yDiameter);
+    fillResetColor();
+  }
 }//End Ball
