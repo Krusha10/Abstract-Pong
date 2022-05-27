@@ -20,7 +20,7 @@ private class Circle extends Point {
       return 255;
     } else {
       //return color(random(0, 255), random(0, 255), random(0));
-      return color (#F5FC78);
+      return color (0);
     }
   }//End fillColour 
   //

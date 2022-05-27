@@ -30,6 +30,7 @@ void setup() {
   Mouth m = new Mouth(x, y + height*0.40, xPt, yPt + height*0.40);
   Arc a = new Arc (x *2, y + height*0.34, 250, 250, 0, 3.15, CHORD);
   Hat h = new Hat (x + width*1/2, y + width*1/9, sides-diameter, recSide);
+  Ear er = new Ear (x - width*1/20, y, diameter + width*1/50);
   //Circle circle = new Ellipse (x+width*1/5, y+width*1/5, diameter+width*1/5, yDiameter+width*1/5);
   //
   shapes.add(fC);
@@ -46,6 +47,7 @@ void setup() {
   shapes.add(re);
   //shapes.add(m);
   shapes.add(a);
+  //shapes.add(er);
   //shapes.add(circle);
   //
 }//End setup
