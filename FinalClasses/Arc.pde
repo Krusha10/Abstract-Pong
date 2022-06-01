@@ -1,4 +1,4 @@
-private class Arc extends Point {
+final private class Arc extends Point {
   //Global variabls
   float a, b, c, d;
   int e;

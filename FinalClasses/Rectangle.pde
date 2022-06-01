@@ -1,4 +1,4 @@
-private class Rectangle extends Square {
+/*private class Rectangle extends Square {
   //Global variabls
   public float sideHeight;
   //
@@ -21,3 +21,4 @@ private class Rectangle extends Square {
   }
   //
 }//End Rectangle
+*/

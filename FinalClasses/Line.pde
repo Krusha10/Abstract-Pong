@@ -1,6 +1,6 @@
 private class Line extends Point {
   //Global variabls
-  private float xPt, yPt;
+  public float xPt, yPt;
   //
   //Constructor
   private Line (float x, float y, float xPt, float yPt) {
@@ -10,7 +10,6 @@ private class Line extends Point {
   }
   //
   public void draw() {
-    strokeWeight(40);
     line(x, y, xPt, yPt);
   }//End draw
   //

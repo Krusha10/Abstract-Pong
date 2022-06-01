@@ -1,4 +1,4 @@
-private class Square extends Point {
+/*private class Square extends Point {
   //Global variabls
   public float side;
   //
@@ -21,3 +21,4 @@ private class Square extends Point {
   }
   //
 } //End Square
+*/

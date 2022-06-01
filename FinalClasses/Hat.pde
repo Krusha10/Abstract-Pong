@@ -1,4 +1,4 @@
-private class Hat extends Rectangle {
+/*final private class Hat extends Rectangle {
   //Global variables
   //
   //Constructor 
@@ -10,3 +10,4 @@ private class Hat extends Rectangle {
   //
   //Common Methods
 }//End Hat
+*/
